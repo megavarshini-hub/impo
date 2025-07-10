@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <string.h>
+
+// This gives value of a Roman letter
+int value(char ch) {
+    if (ch == 'I') return 1;
+    if (ch == 'V') return 5;
+    if (ch == 'X') return 10;
+    if (ch == 'L') return 50;
+    if (ch == 'C') return 100;
+    if (ch == 'D') return 500;
+    if (ch == 'M') return 1000;
+    return 0;
+}
+
+// This converts Roman to Integer
+int romanToInt(char roman[]) {
+    int total = 0;
+    int i = 0;
+
+    while (roman[i]) {
+        int curr = value(roman[i]);
+        int next = value(roman[i + 1]);
+
+        if (curr < next) {
+            total += (next - curr);
+            i += 2;  // Skip next
+        } else {
+            total += curr;
+            i++;
+        }
+    }
+
+    return total;
+}
+
+int main() {
+    char roman[20];
+    printf("Enter Roman Number: ");
+    scanf("%s", roman);
+
+    int result = romanToInt(roman);
+    printf("Result = %d\n", result);
+
+    return 0;
+}
