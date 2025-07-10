@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+void chunkArray(int arr[], int size, int chunkSize) {
+    for (int i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+
+        // 👉 Logic to print newline after every chunk
+        if (/* condition here */) {
+            printf("\n");
+        }
+    }
+}
+
+int main() {
+    int arr[] = {1, 2, 3, 4, 5, 6, 7};
+    int size = sizeof(arr) / sizeof(arr[0]);
+    int chunkSize = 3;  // try changing to 2, 4, etc.
+
+    chunkArray(arr, size, chunkSize);
+    return 0;
+}
