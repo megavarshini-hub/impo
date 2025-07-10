@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+    char str[100];
+    char copy[100];
+    int length,isreversed=1;
+    printf("enter the word:");
+    scanf("%s", str);
+    strcpy (copy,str);
+     length= strlen(str);
+     int i=0;
+     int j= length - 1;
+     while(i<j){
+     char temp = copy[i];
+     copy[i]= copy[j];
+     copy[j] = temp;
+    i++;
+    j--;
+}
+for (int k = 0; k < length; k++) {
+        if (str[k] != copy[k]) {
+            isreversed = 0;  // Not a palindrome
+            break;
+        }
+    }
+     if (isreversed) {
+        printf("Palindrome\n");
+    } else {
+        printf("Not a Palindrome\n");
+    }
+   
+
+    return 0;
+}
